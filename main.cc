@@ -6,6 +6,10 @@
 
 using namespace std;
 
+#define MIN_CUSTOMER_NUM (-500)
+#define MAX_CUSTOMER_NUM (2000)
+#define CUSTOMER_DATA_ERR (-1)
+
 template <typename T>
 void pushQueue(templatePriorityQueue<T>* Que, int data){
 	cout << "[+] Integer "<< data <<" pushed in the Priority Queue." << endl;
@@ -35,15 +39,15 @@ int main(int argc, char* argv[]){
     // If argument is bigger than 1, need to process customer data
 	if( argc > 1 ){
 		customNumber = atoi(argv[1]);
-		if( customNumber > -500 && customNumber < 2000 ){
+		if( customNumber > MIN_CUSTOMER_NUM && customNumber < MAX_CUSTOMER_NUM){
 			pushQueue(&priQueue,customNumber);
 		}
 		else{
-			pushQueue(&priQueue,-1);
+			pushQueue(&priQueue, CUSTOMER_DATA_ERR);
 		}
 	}
 	else{
-		pushQueue(&priQueue,-1);
+		pushQueue(&priQueue, CUSTOMER_DATA_ERR);
 	}
 
 	//empty & size
